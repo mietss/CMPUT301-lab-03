@@ -157,12 +157,11 @@ fun CityListScreen(
                             showAddCityFields = false
 
 
-                            selectedCity?.let {
-                                onUpdateCity(
-                                    it,
+                            onUpdateCity(
+                                    selectedCity!!,
                                     City(newCityName, newProvinceName)
-                                )
-                            }
+                            )
+
 
 
                             newCityName = ""

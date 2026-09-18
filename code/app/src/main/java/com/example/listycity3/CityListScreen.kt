@@ -178,6 +178,7 @@ fun CityListScreen(
         }
 
 
+        //List of cities
         LazyColumn(
             modifier = Modifier
         ) {
@@ -196,6 +197,8 @@ fun CityListScreen(
                 CityRow(
                     city = city,
                     selectedCity == city,
+
+                    //lambda for onCLick to pass city up to selectedCity
                     {selectedCity = city }
                 )
                 if (index < cities.lastIndex) {
@@ -215,7 +218,7 @@ fun CityRow(
     *looked up how lambda functions work in order to pass the selected city listener into the row's onCLick
     *https://kotlinlang.org/docs/lambdas.html#returning-a-value-from-a-lambda-expression
     *
-    * // Source - https://stackoverflow.com/a/68769826
+    * Source - https://stackoverflow.com/a/68769826
     * Posted by Sayan Subhra Banerjee, modified by community. See post 'Timeline' for change history
     * Retrieved 2026-09-17, License - CC BY-SA 4.0
     */
@@ -226,10 +229,13 @@ fun CityRow(
     Row(
         modifier = modifier
             .clickable( onClick = onClick)
+
+            //changes background to show selection
             .background(
                 if(selected) Color.LightGray
                 else Color.Transparent
             )
+
             .fillMaxWidth()
             .padding(horizontal = 20.dp, vertical = 16.dp)
     ) {
